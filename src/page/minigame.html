@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Aniversário!</title>
+  <!--css3-->
+  <link rel="stylesheet" href="/src/css/minigame.css">
+</head>
+
+<body>
+  <main id="game-container">
+    <h1>Aniversário da Sua Amiga!</h1>
+
+    <div class="score-board">
+      Pontuação: <span id="pontos">0</span>/20
+    </div>
+
+    <button id="clique-aqui">Prepare a Festa!</button>
+
+    <div id="parabens" style="display: none;">
+
+      <div class="video-container">
+        <video id="video-player" width="100%" height="215" controls controlsList="nodownload">
+          <source src="/src/video/parabensnoinha.mp4" type="video/mp4">
+          Seu navegador não suporta a tag de vídeo.
+        </video>
+      </div>
+
+      <button id="jogar-novamente">Jogar Novamente</button>
+    </div>
+  </main>
+
+  </div>
+
+  <audio id="som-clique">
+    <source src="/src/audio/clicksoundeffect.mp3" type="audio/mpeg">
+  </audio>
+
+  <!--javascript-->
+  <script src="/src/js/minigame.js"></script>
+</body>
+
+</html>

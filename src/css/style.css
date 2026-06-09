@@ -1,0 +1,150 @@
+/* --- ROOT DE CORES (MONSTER MANGO LOCO) --- */
+:root {
+  --mango-bg-blue: #16b7df;  /* O azul ciano vivo da lata */
+  --mango-orange: #ff7a00;   /* O laranja do contorno */
+  --mango-yellow: #ffd100;   /* O amarelo vibrante */
+  --mango-pink: #e60067;     /* O rosa choque */
+  --mango-dark: #111111;     /* O preto fosco */
+  --mango-white: #f4f4f4;    /* O branco limpo */
+  
+  /* Gradiente das garras (usado nos botões) */
+  --monster-claw-gradient: linear-gradient(to bottom, var(--mango-yellow), var(--mango-orange));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body {
+  background-image: url('/src/img/back2.png'), 
+                    linear-gradient(135deg, var(--mango-bg-blue) 40%, var(--mango-yellow) 100%);
+  
+  background-size: contain, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed, fixed;
+
+  display: flex;
+  justify-content: center;
+  
+  /* MUDANÇA AQUI: Alinha o conteúdo começando pelo topo para podermos empurrar para cima */
+  align-items: flex-start; 
+  
+  min-height: 100vh;
+  overflow-x: hidden;
+  
+  /* Espaçamento superior para o card não colar no topo do navegador */
+  padding-top: 5vh; 
+}
+
+/* --- CONTAINER PRINCIPAL --- */
+main {
+  width: 100%;
+  max-width: 480px;
+  padding: 24px;
+}
+
+/* O Card estilo "Livro de Links" */
+.book {
+  background: rgba(6, 58, 70, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 2px solid var(--mango-yellow);
+  border-radius: 24px;
+  padding: 40px 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  /* O SEGREDO ESTÁ AQUI: Desloca o bloco para cima em relação à sua posição original,
+     descolando ele totalmente das artes de baixo da imagem */
+  transform: translateY(-20px); 
+}
+
+/* --- SEÇÃO DE INFORMAÇÕES DO USUÁRIO --- */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Foto de Perfil */
+.perfil {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--mango-orange);
+  outline: 2.5px solid var(--mango-dark);
+  box-shadow: 0 0 20px rgba(255, 122, 0, 0.4);
+  margin-bottom: 18px;
+  transition: transform 0.3s ease;
+}
+
+.perfil:hover {
+  transform: scale(3) rotate(3deg);
+}
+
+/* Nome do Usuário - Estilo Logo da Lata */
+.name {
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--mango-yellow);
+  -webkit-text-stroke: 1.5px var(--mango-dark); 
+  text-shadow: 3px 3px 0px var(--mango-dark); 
+  margin-bottom: 12px;
+  letter-spacing: 1.5px;
+}
+
+/* Texto de Biografia */
+.text {
+  font-size: 0.95rem;
+  color: var(--mango-white);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- BOTÕES DE LINKS --- */
+.section-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.link-btn {
+  background: rgba(22, 183, 223, 0.1); 
+  color: var(--mango-white);
+  border: 2px solid var(--mango-bg-blue);
+  padding: 16px 24px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  width: 100%;
+}
+
+/* Hover: Ativa o gradiente amarelo/laranja e joga o texto para preto */
+.link-btn:hover {
+  background: var(--monster-claw-gradient);
+  border-color: var(--mango-dark);
+  color: var(--mango-dark);
+  font-weight: 900;
+  box-shadow: 0 0 25px rgba(255, 122, 0, 0.5);
+  
+  /* Mantém o deslocamento para cima do card e soma o efeito de elevação do botão */
+  transform: translateY(-4px); 
+}
+
+.link-btn:active {
+  transform: translateY(-1px);
+}

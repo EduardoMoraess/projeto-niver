@@ -1,0 +1,221 @@
+/* --- ROOT DE CORES (MONSTER MANGO LOCO) --- */
+:root {
+  --mango-bg-blue: #16b7df;
+  /* O azul ciano vivo da lata */
+  --mango-orange: #ff7a00;
+  /* O laranja do contorno */
+  --mango-yellow: #ffd100;
+  /* O amarelo vibrante */
+  --mango-pink: #e60067;
+  /* O rosa choque */
+  --mango-dark: #111111;
+  /* O preto fosco */
+  --mango-white: #f4f4f4;
+  /* O branco limpo */
+
+  /* Gradiente das garras (usado nos botões e destaques) */
+  --monster-claw-gradient: linear-gradient(to bottom, var(--mango-yellow), var(--mango-orange));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body {
+  background-image: url('/src/img/back2.png'),
+    linear-gradient(135deg, var(--mango-bg-blue) 40%, var(--mango-yellow) 100%);
+
+  background-size: contain, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed, fixed;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Centraliza verticalmente para melhorar a experiência do jogo */
+
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+/* --- CONTAINER PRINCIPAL DO JOGO --- */
+#game-container {
+  width: 100%;
+  max-width: 450px;
+  background: rgba(6, 58, 70, 0.90);
+  /* Levemente mais opaco para dar contraste aos elementos do jogo */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 3px solid var(--mango-yellow);
+  /* Borda mais espessa estilo Arcade */
+  border-radius: 24px;
+  padding: 32px 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+/* Título Principal */
+h1 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--mango-yellow);
+  -webkit-text-stroke: 1.5px var(--mango-dark);
+  text-shadow: 3px 3px 0px var(--mango-dark);
+  letter-spacing: 1px;
+}
+
+/* --- PLACAR / PONTUAÇÃO --- */
+.score-board {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--mango-white);
+  text-transform: uppercase;
+  background: rgba(17, 113, 135, 0.4);
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(22, 183, 223, 0.3);
+}
+
+#pontos {
+  color: var(--mango-pink);
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-shadow: 1px 1px 0px var(--mango-dark);
+  margin-left: 5px;
+}
+
+/* --- BOTÃO CENTRAL DO CLICKER (O BOLO / PRESENTE) --- */
+#clique-aqui {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--monster-claw-gradient);
+  color: var(--mango-dark);
+  border: 4px solid var(--mango-dark);
+  box-shadow: 0 10px 25px rgba(255, 122, 0, 0.5),
+    inset 0 -8px 0px rgba(0, 0, 0, 0.15);
+  /* Efeito 3D interno */
+
+  font-size: 1.1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-wrap: break-word;
+  padding: 15px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+/* Feedback visual imediato ao clicar */
+#clique-aqui:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 30px rgba(255, 122, 0, 0.7);
+}
+
+#clique-aqui:active {
+  transform: scale(0.95);
+  /* Efeito de afundar ao clicar */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* --- TELA DE PARABÉNS (MODAL / OVERLAY) --- */
+#parabens {
+  background: var(--mango-dark);
+  border: 3px solid var(--mango-pink);
+  border-radius: 20px;
+  padding: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 0 30px rgba(230, 0, 103, 0.4);
+
+  /* Animação suave para quando a div surgir via JS */
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Foto da aniversariante com o efeito hover mantido */
+#parabens img {
+  width: 230px;
+  height: 230px;
+  
+  object-fit: cover;
+  border: 4px solid var(--mango-pink);
+  outline: 3px solid var(--mango-yellow);
+  box-shadow: 0 0 20px rgba(230, 0, 103, 0.6);
+  transition: transform 0.3s ease;
+}
+
+/* Mantive a interação divertida da foto crescer que estava no seu código base */
+#parabens img:hover {
+  transform: scale(1.2) rotate(3deg);
+  border-radius: 50%;
+}
+
+/* Mensagem de felicitação */
+.message-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--mango-yellow);
+  text-transform: uppercase;
+}
+
+.message-text {
+  font-size: 0.95rem;
+  color: var(--mango-white);
+  line-height: 1.6;
+}
+
+/* --- BOTÃO DE RECOMEÇAR --- */
+#jogar-novamente {
+  background: transparent;
+  color: var(--mango-white);
+  border: 2px solid var(--mango-bg-blue);
+  padding: 12px 24px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: 80%;
+  margin-top: 8px;
+}
+
+#jogar-novamente:hover {
+  background: var(--mango-bg-blue);
+  color: var(--mango-dark);
+  font-weight: 900;
+  box-shadow: 0 0 15px rgba(22, 183, 223, 0.4);
+}
+
+/* --- ANIMAÇÕES --- */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
