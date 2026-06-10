@@ -14,6 +14,6 @@ const abrirLink = (idLink)=>{
   console.error('link não encontrado na lista')
 }
 
-/*setTimeout(()=>{
+setTimeout(()=>{
   alert('Esse site so funciona no PC')
-}, 100)*/
+}, 100)
